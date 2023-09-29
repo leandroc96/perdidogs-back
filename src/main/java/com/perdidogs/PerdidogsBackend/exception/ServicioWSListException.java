@@ -1,7 +1,7 @@
 package com.perdidogs.PerdidogsBackend.exception;
 
-import ar.com.comafi.arch.dto.ConflictErrorListDTO;
-import ar.com.comafi.arch.dto.ErrorDTO;
+
+import com.perdidogs.PerdidogsBackend.model.dto.ErrorDTO;
 
 public class ServicioWSListException extends RuntimeException {
 	
@@ -22,7 +22,7 @@ public class ServicioWSListException extends RuntimeException {
 		if (errores == null)
 			errores = new ConflictErrorListDTO();
 		
-		ErrorDTO e = new ErrorDTO(codigo, mensaje); 
+		ErrorDTO e = new ErrorDTO(codigo, mensaje);
 		errores.addError(e);
 	}
 	

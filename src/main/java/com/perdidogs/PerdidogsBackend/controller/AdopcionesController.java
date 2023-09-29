@@ -1,5 +1,6 @@
 package com.perdidogs.PerdidogsBackend.controller;
 
+import com.perdidogs.PerdidogsBackend.helper.JsonExamples;
 import com.perdidogs.PerdidogsBackend.model.dto.AdopcionesDTO;
 import com.perdidogs.PerdidogsBackend.model.dto.ErrorDTO;
 import com.perdidogs.PerdidogsBackend.model.response.ConsultaAdopcionesResponseDTO;
@@ -33,11 +34,11 @@ public class AdopcionesController {
 
     @Operation(summary = "Consulta de lista de adopciones")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Success", content = {
-            @Content(mediaType = "application/json", schema = @Schema(implementation = ConsultaAdopcionesResponseDTO.class), examples = @ExampleObject(name = "SUCCESS", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_200)) }),
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ConsultaAdopcionesResponseDTO.class), examples = @ExampleObject(name = "SUCCESS", value = JsonExamples.CONSULTA_LISTA_ADOPCIONES)) }),
             @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "BAD REQUEST", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_400)) }),
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "BAD REQUEST", value = JsonExamples.CONSULTA_LISTA_ADOPCIONES_400)) }),
             @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "CONFLICT", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_409)) }) })
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "CONFLICT", value = JsonExamples.CONSULTA_LISTA_ADOPCIONES_409)) }) })
     @GetMapping("/solicitud-historica")
     @ResponseStatus(HttpStatus.OK)
     public ConsultaAdopcionesResponseDTO consultarSolicitudHistorica(
@@ -49,11 +50,7 @@ public class AdopcionesController {
 
     @Operation(summary = "Alta de adopcion")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Success", content = {
-            @Content(mediaType = "application/json", schema = @Schema(implementation = ConsultaAdopcionesResponseDTO.class), examples = @ExampleObject(name = "SUCCESS", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_200)) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "BAD REQUEST", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_400)) }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "CONFLICT", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_409)) }) })
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "CONFLICT", value = JsonExamples.ALTA_ADOPCION_409)) }) })
     @PostMapping()
     @ResponseStatus(HttpStatus.OK)
     public void consultarSolicitudHistorica(@RequestBody AdopcionesDTO adopcionesDTO) {
@@ -63,11 +60,7 @@ public class AdopcionesController {
 
     @Operation(summary = "modificacion de adopcion")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Success", content = {
-            @Content(mediaType = "application/json", schema = @Schema(implementation = ConsultaAdopcionesResponseDTO.class), examples = @ExampleObject(name = "SUCCESS", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_200)) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "BAD REQUEST", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_400)) }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "CONFLICT", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_409)) }) })
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "CONFLICT", value = JsonExamples.MODIFICACION_ADOPCION_409)) }) })
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void consultarSolicitudHistorica(@PathVariable("id") int id, @RequestBody AdopcionesDTO adopcionesDTO) {
@@ -77,11 +70,7 @@ public class AdopcionesController {
 
     @Operation(summary = "Baja de adopcion")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Success", content = {
-            @Content(mediaType = "application/json", schema = @Schema(implementation = ConsultaAdopcionesResponseDTO.class), examples = @ExampleObject(name = "SUCCESS", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_200)) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "BAD REQUEST", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_400)) }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "CONFLICT", value = JsonExamples.CONSULTA_SOLICITUD_HISTORICA_409)) }) })
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "CONFLICT", value = JsonExamples.BAJA_ADOPCION_409)) }) })
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void consultarSolicitudHistorica(@PathVariable("id") int id) {
