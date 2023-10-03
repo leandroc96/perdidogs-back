@@ -1,16 +1,13 @@
 package com.perdidogs.PerdidogsBackend.model.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "adopciones")
+@Table(name ="adopciones")
 public class AdopcionesDTO {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String descripcion;
@@ -30,6 +27,9 @@ public class AdopcionesDTO {
         this.fecha = fecha;
         this.foto = foto;
         this.contacto = contacto;
+    }
+
+    public AdopcionesDTO() {
     }
 
     public Integer getId() {

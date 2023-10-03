@@ -39,9 +39,9 @@ public class AdopcionesController {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "BAD REQUEST", value = JsonExamples.CONSULTA_LISTA_ADOPCIONES_400)) }),
             @ApiResponse(responseCode = "409", description = "Conflict", content = {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "CONFLICT", value = JsonExamples.CONSULTA_LISTA_ADOPCIONES_409)) }) })
-    @GetMapping("/solicitud-historica")
+    @GetMapping("/")
     @ResponseStatus(HttpStatus.OK)
-    public ConsultaAdopcionesResponseDTO consultarSolicitudHistorica(
+    public ConsultaAdopcionesResponseDTO consultaListaAdopciones(
             @RequestParam("tipo_documento") @NotEmpty(message = "El campo 'tipo_documento' no deber ser vacío") String tipoDocumento,
             @RequestParam("numero_documento") @NotNull(message = "El campo 'numero_documento' no deber ser vacío") Long numeroDocumento) {
         return adopcionesService.listaAdopciones();
@@ -51,7 +51,7 @@ public class AdopcionesController {
     @Operation(summary = "Alta de adopcion")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Success", content = {
             @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "CONFLICT", value = JsonExamples.ALTA_ADOPCION_409)) }) })
-    @PostMapping()
+    @PostMapping("/")
     @ResponseStatus(HttpStatus.OK)
     public void consultarSolicitudHistorica(@RequestBody AdopcionesDTO adopcionesDTO) {
          adopcionesService.altaAdopcion(adopcionesDTO);
