@@ -41,9 +41,7 @@ public class AdopcionesController {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorDTO.class), examples = @ExampleObject(name = "CONFLICT", value = JsonExamples.CONSULTA_LISTA_ADOPCIONES_409)) }) })
     @GetMapping("/")
     @ResponseStatus(HttpStatus.OK)
-    public ConsultaAdopcionesResponseDTO consultaListaAdopciones(
-            @RequestParam("tipo_documento") @NotEmpty(message = "El campo 'tipo_documento' no deber ser vacío") String tipoDocumento,
-            @RequestParam("numero_documento") @NotNull(message = "El campo 'numero_documento' no deber ser vacío") Long numeroDocumento) {
+    public ConsultaAdopcionesResponseDTO consultaListaAdopciones() {
         return adopcionesService.listaAdopciones();
 
     }
